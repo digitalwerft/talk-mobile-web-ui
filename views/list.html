@@ -1,0 +1,71 @@
+<div class="content">
+    <div class="view list">
+        <div class="noEntries" ng-show="openTasks < 1">
+            You got nothing to do!<br /><br />
+
+            <a href="#/detail">Add a task.</a>
+        </div>
+        <div class="todo">
+            <div class="todo-title" ng-show="openTasks.length > 0">
+                <div ng-switch="openTasks.length">
+                    <div ng-switch-when="1">1 open task</div>
+                    <div ng-switch-default>{{ openTasks.length }} open tasks</div>
+                </div>
+            </div>   
+            <div class="todo-item" 
+                 ng-repeat="item in openTasks = (store.todos | filter:{checked:false}) track by item.id"
+                 ng-class="{ 'show-delete': showDelete }"
+                 ng-init="showDelete = false"
+                 ng-swipe-left="showDelete = true"
+                 ng-swipe-right="showDelete = false">
+                <div class="todo-item-checkbox" ng-click="item.checked = !item.checked">
+                    <span ng-class="{ 'icon-circle': item.checked == false, 'icon-ok-circled': item.checked }"></span>
+                </div>
+                <a href="#/detail/{{item.id}}" class="todo-item-link">
+                    <div class="todo-item-title">{{item.task}}</div>
+                    <div class="todo-item-due">{{item.date}}</div>
+                </a>
+                <div class="todo-item-delete" ng-click="delete(item.id)">
+                    <span class="icon-cancel"></span>
+                </div>
+            </div>
+
+            <div class="todo-title" ng-show="(store.todos | filter:{checked:true}).length > 0">
+                <div ng-switch="completedTasks.length">
+                    <div ng-switch-when="1">1 completed task</div>
+                    <div ng-switch-default>{{ completedTasks.length }} completed tasks</div>
+                </div>
+            </div>   
+            <div class="todo-item" 
+                 ng-repeat="item in completedTasks = (store.todos | filter:{checked:true}) track by item.id"
+                 ng-class="{ 'show-delete': showDelete }"
+                 ng-init="showDelete = false"
+                 ng-swipe-left="showDelete = true"
+                 ng-swipe-right="showDelete = false">
+                <div class="todo-item-checkbox" ng-click="item.checked = !item.checked">
+                    <span ng-class="{ 'icon-circle': item.checked == false, 'icon-ok-circled': item.checked }"></span>
+                </div>
+                <a href="#/detail/{{item.id}}" class="todo-item-link">
+                    <div class="todo-item-title">{{item.task}}</div>
+                    <div class="todo-item-due">{{item.date}}</div>
+                </a>
+                <div class="todo-item-delete" ng-click="delete(item.id)">
+                    <span class="icon-cancel"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="navigation hide" ng-class="{open: showNav, hide: !showNav}" ng-init="showNav === false">
+    <ul class="navigation-list">
+        <li class="navigation-list-item">
+            <a class="navigation-list-item-link" ng-click="checkAll()"><span class="icon-ok-circled"></span> Check all</a>
+        </li>
+        <li class="navigation-list-item">
+            <a class="navigation-list-item-link" ng-click="uncheckAll()"><span class="icon-circle"></span> Uncheck all</a>
+        </li>
+        <li class="navigation-list-item">
+            <a class="navigation-list-item-link" ng-click="deleteCompleted()"><span class="icon-cancel"></span> Delete completed</a>
+        </li>
+    </ul>
+</div>

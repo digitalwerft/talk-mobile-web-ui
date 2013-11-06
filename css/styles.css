@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background: #FFFFFF;
+    font-weight: 500;
+}
+
+input, textarea {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    border-radius: 0px;
+}
+
+input:focus, button:focus {
+    outline: 0;
+}
+
+/**
+ * HEADER
+ */
+
+.header {
+    background: #0b79e5;
+    color: #FFFFFF;
+    font-weight: 200;
+}
+
+.header-title {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 20px;
+    line-height: 44px;
+    width: 200px;
+}
+
+.header-button {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 40px;
+    min-width: 40px;
+    font-size: 24px;
+    line-height: 40px;
+    padding: 2px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.header-button.header-button-left { 
+    left: 0px;
+    right: auto;
+}
+
+.header-button-label {
+    display: none;
+}
+
+@media (min-width: 500px) {
+
+    .header-button-label {
+        display: inline-block;
+        font-size: 16px;
+        margin: 0 5px;
+        float: right;
+    }
+
+    .header-button-right .header-button-label {
+        float: left;
+    }
+}
+
+/**
+ * NAVIGATION
+ *
+ * .open behaivor is only for browser which support overflow
+ */
+
+.overflow .navigation {
+    -webkit-transform: translateY(0px);
+}
+
+.overflow .navigation .navigation-list {
+    -webkit-transform: translateY(-200px);
+    transition: all 0.5s ease-in-out;
+}
+
+.overflow .navigation.open .navigation-list {
+    -webkit-transform: translateY(0px);
+}
+
+.navigation-list-item-link {
+    padding: 0 20px 0 20px;
+    border-top: 1px solid #FFFFFF;
+    display: block;
+
+    background: #CCCCCC;
+    font-size: 20px;
+    line-height: 64px;
+    text-decoration: none;
+    color: #0b79e5;
+    font-weight: 300;
+}
+
+.view {
+    overflow-x: hidden; 
+ }
+
+ /**
+  * TODO LIST
+  */
+
+.todo {
+    -webkit-transform: translate3d(0,0,0);
+}
+
+.todo-title {
+    background: #CCCCCC;
+    line-height: 30px;
+    padding: 0 10px;
+    color: #555555;
+    font-weight: 200;
+    -webkit-transform: translate3d(0,0,0);
+}
+
+.todo-item {
+    position: relative;
+    border-bottom: 1px solid #CCCCCC;
+    height: 90px;
+    padding: 0 15px;
+    clear: both;
+    -webkit-transform: translateX(0px);
+}
+
+.todo-item.show-delete {
+    -webkit-transform: translateX(-90px);
+}
+.todo-item-checkbox {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    font-size: 44px;
+    line-height: 60px;
+    color: #0b79e5;
+    float: left;
+    margin-top: 15px;
+}
+
+.todo-item-checkbox .icon-ok-circled {
+    color: #64DD4D;
+}
+
+.todo-item-link {
+    display: block;
+    height: 60px;
+    margin: 0 0 0 75px;
+    padding: 15px 0 15px 0;
+    text-decoration: none;
+}
+
+.todo-item-title {
+    padding: 13px 15px 5px 0px;
+    font-size: 18px;
+    line-height: 18px;
+    color: #555555;
+}
+
+.todo-item-delete {
+    height: 90px;
+    width: 90px;
+    background: #FA3E3E;
+    position: absolute;
+    right: -90px;
+    top: 0px;
+    color: #FFFFFF;
+    font-size: 38px;
+    line-height: 90px;
+    text-align: center;
+}
+
+.todo-item-due {
+    font-size: 13px;
+    color: #AAAAAA;
+}
+
+
+
+.noEntries {
+    margin: 30px 20px 30px 20px;
+    text-align: center;
+    font-size: 20px;
+    color: #555555;
+    -webkit-transform: translate3d(0,0,0);
+}
+
+.noEntries a {
+    color: #888888;
+}
+
+
+/**
+ * TODO DETAIL 
+ */
+
+.view.edit {
+    padding: 20px;
+}
+
+.form-group {
+    padding: 0 0 20px 0;
+}
+
+.form-group label {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 200;
+    margin: 0 0 5px 0;
+}
+
+.form-group input {
+    width: 100%;
+    display: block;
+     box-sizing: border-box;
+     -webkit-box-sizing:border-box;
+     -moz-box-sizing: border-box;
+    background: #EEEEEE;
+    border-bottom: 1px solid #0b79e5;
+    font-size: 20px;
+    color: #555555;
+    padding: 5px 10px 5px 10px;
+}
+
+
+.form-group input[type="text"] {}
+
+.form-group input[type="date"] { 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.form-group input::-webkit-datetime-edit {
+    padding: 5px 10px 5px 10px;
+}
+
+.button {
+    display: block;
+    height: 44px;
+    background: #64DD4D;
+    color: #FFFFFF;
+    font-size: 20px;
+    width: 100%;
+    font-weight: 200;
+}
+
+.button:active {
+    background: #5AAA4B;
+}

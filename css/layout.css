@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/**
+ * Default layout for no-overflow browsers (old mobile devices)
+ */
+
+.container {
+    width: 100%;
+}
+
+.header {
+    height: 44px;
+    background: #DDDDDD;
+}
+
+.content {
+    position: static;
+    clear: both;
+}
+
+.navigation {
+    display: block;
+}
+
+/**
+ * Layout browsers which support overflow
+ *
+ * .overflow is added by Modernizer
+ */
+.overflow .container {
+    width: 100%;
+    overflow: hidden; /* Required for view animation */
+}
+
+.overflow .header {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 44px;
+    z-index: 200;
+}
+
+.overflow .content {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.overflow .navigation {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background: rgba(255,255,255,0.0);
+    bottom: 0px;
+    max-height: 0px;
+    transition: background 0.5s ease-in-out, max-height 0s 0.5s;
+}
+
+.overflow .navigation.open {
+    background: rgba(255,255,255,0.7);
+    max-height: 3000px;
+    transition: background 0.5s ease-in-out, max-height 0s 0s;
+}
+
+.overflow .container > .view {
+    position: absolute;
+    top: 44px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="todo">
+<head>
+    <title>Todo App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/animation.css" />
+    <link rel="stylesheet" href="css/icons.css" />
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" href="images/icons/touch-icon-iphone.png"> 
+    <link rel="apple-touch-icon" sizes="76x76" href="images/icons/touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/icons/touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/icons/touch-icon-ipad-retina.png">
+
+    <!-- iOS Splash Image -->
+    <!-- iPhone -->
+    <link href="images/splash/apple-touch-startup-image-320x460.png" media="(device-width: 320px)" rel="apple-touch-startup-image">
+    <!-- iPhone (Retina) -->
+    <link href="images/splash/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    <!-- iPad (portrait) -->
+    <link href="images/slash/apple-touch-startup-image-768x1004.png" media="(device-width: 768px) and (orientation: portrait)" rel="apple-touch-startup-image">
+    <!-- iPad (landscape) -->
+    <link href="images/splash/apple-touch-startup-image-1024x748.png" media="(device-width: 768px) and (orientation: landscape)" rel="apple-touch-startup-image">
+</head>
+<body>
+    <div class="container" ng-class="{backwards: backwards, frontwards: !backwards, loading: loading}" ng-init="loading = true">
+        <!-- .header is shown in both list an detail view -->
+        <div class="header" ng-init="showNav = false">
+            <!-- Back button, only shown on detail view -->
+            <a href="#/list"><div class="header-button header-button-left" ng-show="view === 'detail'"><span class="icon icon-left-open"></span><div class="header-button-label">Back</div></div></a>
+            <!-- Add task button, only shown on list view -->
+            <a href="#/detail/"><div class="header-button header-button-right" ng-show="view === 'list'"><span class="icon icon-plus"></span><div class="header-button-label">Add task</div></div></a>
+            <!-- Nav button, only shown on list view -->
+            <div class="header-button header-button-left" ng-show="view === 'list'" ng-click="showNav = !showNav"><span class="icon icon-cog"></span><div class="header-button-label">Actions</div></div>
+            
+            <div class="header-title">Todo App</div>
+        </div>
+        <!-- ngView: Contains both .content and .navigation to keep them in the same scope -->
+        <div ng-view class="view">
+        </div>
+    </div>
+
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>    
+    <script type="text/javascript" src="bower_components/angular-touch/angular-touch.js"></script>
+    <script type="text/javascript" src="scripts/modernizr-custom.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "add-to-homescreen",
+  "homepage": "https://github.com/cubiq/add-to-homescreen",
+  "version": "2.0.11",
+  "_release": "2.0.11",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.0.11",
+    "commit": "a6369bbe144bbfd522559998f9143c434eb1d83b"
+  },
+  "_source": "git://github.com/cubiq/add-to-homescreen.git",
+  "_target": "~2.0.11",
+  "_originalSource": "add-to-homescreen",
+  "_direct": true
+}
